@@ -5,7 +5,7 @@
 
 #include<iostream>
 #include<string>
-using namespace std;
+using namespace std; 
 
 int main() {
     /**
@@ -88,7 +88,22 @@ int main() {
         in a string, from a certain index
     */
     string strErase = "I am a coder";
-    strErase.erase(3, 3);
+    strErase.erase(3, 3); // .erase(deletefrom, deleteNumberOfCharacters)
+    //strErase.erase(4); // If 2nd param is not mentioned, it will erase all chars starting from pos 4
     cout << strErase << endl;
+
+    /*
+        Trimming a string
+    */
+    cout << "Hi" << endl;
+    string paddedStringInBothEnds = "Coding is  a passion  ";
+    size_t firstNonSpaceChar = paddedStringInBothEnds.find_first_not_of(' ');
+    if (firstNonSpaceChar == std::string::npos){
+        cout << paddedStringInBothEnds << endl;
+    }
+    else{
+        size_t lastNonSpaceChar = paddedStringInBothEnds.find_last_not_of(' ');
+        cout << paddedStringInBothEnds.substr(firstNonSpaceChar, (lastNonSpaceChar - firstNonSpaceChar + 1)) << endl;
+    }
     return 0;
 }
